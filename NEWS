@@ -1,0 +1,322 @@
+pyexiv2 0.3.2 "Travelling" - 2011-10-24
+---------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.6
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Bugs fixed:
+
+- 880659: Regression: pyexiv2 0.3.1 doesn’t work with Python 2.6
+
+Contributors:
+
+- Olivier Tilloy
+
+
+pyexiv2 0.3.1 "Challenges" - 2011-10-23
+---------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.6
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Changes:
+
+- Compiles and tested against the latest libexiv2 (0.22)
+- Updated windows dependencies (iconv 1.14, libexiv2 0.22, python 2.7.2,
+  boost 1.47.0)
+
+Bugs fixed:
+
+- 802176: UnicodeDecodeError when opening a file with unicode characters in the
+  path
+- 815430: [win32] Saving previews to disk produces bogus JPEG files
+- 781464: Pentax MakerNote tags advertised with the wrong type, decoding their
+  value raises a ValueError
+- 786253: Exif headers with zero-denominator rational (fraction) types raise
+  DivideByZero exception unnecessarily
+- 797626: Cannot assign dates earlier than the year 1900
+- 797644: Timezone info is not correctly passed to libexiv2 when writing IPTC
+  and XMP tags
+- 823104: Setting an XMP tag from a value with incorrect type results in a
+  confusing KeyError being raised
+- 696240: pyexiv2-0.3.0 docs fail to build with sphinx-1.0.5
+- 736143: scons error
+- 813224: String representation of Rational not implemented
+
+Contributors:
+
+- Alex A. Naanou
+- Bob Swithers
+- Chris Mayo
+- Franz Buchinger
+- Hobson Lane
+- János Illés
+- Joe Borg
+- Olivier Tilloy
+- Petri Damstén
+- Rob Healey
+
+
+pyexiv2 0.3.0 "A Good Year" - 2010-12-31
+----------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.6
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Changes:
+
+- Compiles and tested (on linux and windows) against libexiv2 0.19, 0.20, 0.21
+- ImageMetadata implements the collections.MutableMapping interface
+- Consistent API across all types of tags to access the value(s)
+- Read/write access to the EXIF thumbnail
+- Decode and encode EXIF comments according to the specified charset
+- API to (un)register custom XMP namespaces
+- API to get, set and delete the (optional) IPTC charset
+- Added pickling support to tags
+- Use fractions.Fraction when available in the standard library (Python ≥ 2.6)
+
+Bugs fixed:
+
+- 617557: Feature request: consistent getter/setter API for EXIF/IPTC/XMP
+- 618540: Windows build for Python 2.7
+- 644143: Failing to parse a raw value silently fails
+- 677267: Crashes when trying to read Xmp.lr.hierarchicalSubject
+- 684177: FTBFS against exiv2-0.21
+- 559903: Please decode EXIF comments according to charset
+- 587614: Where's the good old setThumbnailData in 0.2.X series ?
+- 622739: Segmentation fault when replacing a tag by itself
+- 624283: Unit tests fail with a non-unicode locale
+- 624999: test_write_dont_preserve_timestamps fails
+- 683232: assignment of fractions.Fraction to Exif.GPSInfo.GPSAltitude leads to
+  backtrace
+- 687373: Misleading exception raised when metadata not read
+- 688209: test_write_exif_thumbnail_to_file fails on windows
+- 461847: feature request: convenience function to set IPTC encoding to UTF-8
+- 507620: Investigate the ability to catch stderr from libexiv2 in pyexiv
+- 514415: Replace the Rational class by fractions.Fraction
+- 549496: Feature request: Custom XMP namespaces
+- 628735: Pickling an {Exif,Iptc,Xmp}Tag itself
+- 648624: Feature request: inherit ImageMetadata from collections.MutableMapping
+
+Contributors:
+
+- Alexandre Rossi
+- Antti Siira
+- Matěj Cepl
+- Olivier Tilloy
+- Rob Healey
+
+
+pyexiv2 0.2.2 "Holiday" - 2010-05-27
+------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.5
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Changes:
+
+- Fixed two memory leaks
+- Optimized the use of the underlying libexiv2, expect improved performances
+- Restored access to the image comment (was a regression from the 0.1 series)
+- Added an optional parameter to preserve timestamps when writing metadata
+- Improved API documentation
+
+Bugs fixed:
+
+- 581787: Metadata tags leak memory
+- 582194: Reading an IPTC tag leaks memory
+- 582445: Reading a tag off an image unnecessarily re-writes its value(s)
+- 582733: Tag values are written twice
+- 559931: Please restore ability to retrieve JPEG comment
+- 564770: Document pyexiv2.metadata preview method and properties
+- 461840: feature request : optionally preserve file timestamps
+
+Contributors:
+
+- Olivier Tilloy
+
+
+pyexiv2 0.2.1 "Employment" - 2010-04-26
+---------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.5
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Changes:
+
+This is a maintenance release that fixes a critical memory leak and makes it
+easier to generate the documentation and run the unit tests.
+
+Bugs fixed:
+
+- 562525: memory leak in ImageMetadata.from_buffer
+- 549398: Building the doc requires fiddling with the PYTHONPATH
+- 549399: Add a "test" target to scons to run the unit tests
+
+Contributors:
+
+- Olivier Tilloy
+
+
+pyexiv2 0.2.0 "Commuting" - 2010-03-25
+--------------------------------------
+
+Dependencies:
+
+- Python ≥ 2.5
+- libexiv2 ≥ 0.19
+- boost.python ≥ 1.38
+
+Changes:
+
+- Almost complete, not backward compatible, rewrite of the 0.1 branch
+- Support reading and writing XMP metadata
+- Support reading images from stream
+- The API is fully documented, the documentation also includes a tutorial and
+  detailed instructions for developers
+- Compiled and tested on Linux and Windows
+- The code is now reasonably covered by a battery of unit tests
+
+Bugs fixed:
+
+- 183337: Support of XMP metadata
+- 332419: pyexiv2 can not open files with accents in filename on windows
+- 343403: writing iptc field raises exception oldValues has no len() and/or
+  newValues not iterable
+- 363873: Pb setting IPTC Tags
+- 369640: Thumbnail images from a variety of RAW images cannot be extracted
+- 372321: GIL remains locked during metadata writes
+- 389960: Can't write geotag data
+- 392767: Error writing metadata after copying all from another image
+- 421984: Iptc Keywords and SuppCat should always be tuples
+- 503272: Doesn't compile against libexiv2 >= 0.19
+- 510392: Adding values to a repeatable IPTC tag segfaults
+- 514590: Longitude should accept 0 to 180 degrees
+- 517536: pyexiv2 module is not installed
+- 522216: Inserting a new tag doesn't update the list of keys
+- 523858: Build fails on Ubuntu Karmic (and others)
+- 183618: Exif.GPSInfo.{GPSLongitude,Latitude} are not decoded
+- 249835: pyexiv2 build ignores environmental variables for compilation
+- 256875: Unable to add/modify multiple value short tags
+- 401684: Support per-user site-packages
+- 401876: Exif.CanonCs.LensType not interpreted
+- 411730: lib is currently hardcoded in src/SConscript
+- 461853: feature request : version information in code
+- 510393: Setting an XMP seq to the empty list segfaults
+- 514408: segfault when reading a nonexistent file
+- 517298: Port ReadMetadataTestCase to 0.2
+- 519566: Segmentation Fault when tried to read metadata from a non-image file
+- 521404: pygtk example does not quit after closing window
+- 379270: pyexiv2 access to pixelWidth and pixelHeight accessors?
+- 518732: Add support for loading image streams
+- 401784: Reimplement copyMetadataTo in cpp
+
+Contributors:
+
+- Damien Moore
+- Mark Lee
+- Olivier Tilloy
+- Rob Wallace
+- Xoff
+
+
+pyexiv2 0.1.3 - 2009-03-14
+--------------------------
+
+Dependencies:
+
+- Python 2.5
+- libexiv2 0.18
+- boost.python 1.34.1
+
+Changes:
+
+- Adapted the thumbnail related methods (getThumbnailData, setThumbnailData,
+  deleteThumbnail, dumpThumbnailToFile, setThumbnailFromJpegFile) to the new
+  API of libexiv2 0.18.
+- Removed the unused __main__ from pyexiv2.py.
+
+
+pyexiv2 0.1.2 - 2008-02-09
+--------------------------
+
+Dependencies:
+
+- Python 2.5.1
+- libexiv2 0.15
+- boost.python 1.34.1
+
+Changes:
+
+- Fixed bug #177249: pyexiv2 should install in site-packages? (reported by
+  Chris Mayo).
+- Implemented feature request tracked by bug #175069: Retrieve/set the JPEG
+  comment (feature requested by manatlan).
+- Really fixed bug #146313: passing the filename to the Image constructor as
+  unicode fails (reported by Michal Čihař).
+- Fixed bug #173387: Error reading Exif.Photo.UserComment (reported by
+  vincespicer).
+- Fixed bug #175070: Deleting a tag not previously accessed raises a KeyError
+  exception (reported by manatlan).
+- Fixed bug #183618: Exif.GPSInfo.{GPSLongitude,Latitude} are not decoded
+  (reported by dr who).
+- Added a method to copy all EXIF and IPTC metadata and the comment from one
+  image to another one (patch submitted by vincespicer).
+- Added a rational number type (class pyexiv2.Rational) to handle rational
+  values stored in EXIF tags.
+- Fixed a bug that prevented from setting an EXIF tag with multiple values.
+- Added some unit tests to test various basic functionalities and bug fixes.
+- Fixed bug #183332: Cached metadata is not converted to its correct type
+  (reported by Christopher Ellison).
+
+
+pyexiv2 0.1.1 - 2007-10-14
+--------------------------
+
+Dependencies:
+
+- Python 2.5.1
+- libexiv2 0.12
+- boost.python 1.33.1
+
+Changes:
+
+- Fixed a bug due to interface changes for exceptions management in
+  libexiv2 0.13 (reported by Damon Lynch).
+- Added support for DESTDIR in SConscript for installation (feature
+  requested by Michal Čihař).
+- Fixed bug #146313: passing the filename to the Image constructor as
+  unicode fails (reported by Michal Čihař).
+- Fixed bug #146323: Multi value fields are broken (reported by Michal Čihař).
+- Implemented feature request tracked by bug #147534: Provide access to
+  interpreted (translated) data (feature requested by Michal Čihař).
+- Implemented feature request tracked by bug #149212: Add access to tag labels
+  (feature requested by Michal Čihař).
+
+
+pyexiv2 0.1 - 2007-08-30
+------------------------
+
+Dependencies:
+
+- Python 2.5.1
+- libexiv2 0.12
+- boost.python 1.33.1
+
+This is the initial release of pyexiv2.
+

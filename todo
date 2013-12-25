@@ -1,0 +1,8 @@
+todo list
+
+- Unit test the C++ wrapper (in python, if possible)
+- Use logging to log, among other things, decoding and type conversion errors
+- Rewrite the exiv2 command-line tool and the test binaries in Python and (Python) scripts to run the same tests that are run to test exiv2
+- Consider upgrading the license to GPL v3
+- Integrate Robin’s work to compile and package on MacOS X
+- Support Python 3
